@@ -26,7 +26,7 @@ void addCplx(complexe *dest, const complexe *a, const complexe *b){
     dest->nbComplexe.y=a->nbComplexe.y + b->nbComplexe.y;
 }
 
-int main(){
+int td1_main(){
     complexe a;
     complexe *b;
     complexe *c;
