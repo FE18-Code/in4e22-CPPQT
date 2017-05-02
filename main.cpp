@@ -5,7 +5,7 @@ using namespace std;
 
 class A{
 public:
-    void f(int);
+    virtual void f(int);
 };
 
 void A::f(int) {
