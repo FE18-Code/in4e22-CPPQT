@@ -76,18 +76,13 @@ void NbreCplx::setCoord_representation(coord_system coord_representation) {
 /* private functions */
 
 void NbreCplx::cpCoord(NbreCplx & dest, const NbreCplx & from){
-    float_t val1;
-    float_t val2;
     coord_system repr = from.getCoord_representation();
 
     if(repr == COORD_RECTANGULAR){
-        val1 = from.coord_rect_a;
-        val2 = from.coord_rect_b;
+        NbreCplx::cpCoord(dest, from.getCoord_rect_a(), from.getCoord_rect_b(), repr);
     }else{ /* polar */
-        val1 = from.coord_polr_x;
-        val2 = from.coord_polr_y;
+        NbreCplx::cpCoord(dest, from.getCoord_polr_x(), from.getCoord_polr_y(), repr);
     }
-    NbreCplx::cpCoord(dest, val1, val2, repr);
 }
 
 void NbreCplx::cpCoord(NbreCplx & dest, const float_t & val1, const float_t & val2, const coord_system & representation=D_COORDSYST_DEFAULT){
