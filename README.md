@@ -1,8 +1,8 @@
 # in4e22-TDINTRO
 Source code for Learning C, C++ & Qt TD
 
-Checkout branches to see the whole thing.
-
+(Checkout branches to see the whole thing.)
+Moved code into folders
 
 About : NbreCplx mini project
 - A full Doxygen style documentation is provided (header files)
