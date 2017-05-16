@@ -68,12 +68,44 @@ coord_system NbreCplx::getCoord_representation() const {
 }
 
 void NbreCplx::setCoord_representation(coord_system coord_representation) {
-    NbreCplx::coord_representation = coord_representation;
+    if(this->getCoord_representation()!=coord_representation){
+        if(coord_representation==COORD_RECTANGULAR){
+            this->toRectangular();
+        }
+        if(coord_representation==COORD_POLAR){
+            this->toPolar();
+        }
+    }/* else : already in coord_representation : nothing to do */
 }
 
 
 
 /* private functions */
+
+void NbreCplx::toRectangular(){
+    float_t a;
+    float_t b;
+
+    a=(float_t)acos(this->getCoord_polr_y());
+    b=(float_t)asin(this->getCoord_polr_x());
+
+    this->setCoord_rect_a(a);
+    this->setCoord_rect_b(b);
+    this->setCoord_representation(COORD_RECTANGULAR);
+}
+
+void NbreCplx::toPolar(){
+    float_t mod;
+    float_t ang;
+
+    mod=(float_t)pow(this->getCoord_rect_a(), (double_t)2);
+    mod+=(float_t)pow(this->getCoord_rect_b(), (double_t)2);
+    ang=(float_t)cos((double_t)this->getCoord_rect_a());
+
+    this->setCoord_polr_x(mod);
+    this->setCoord_polr_y(ang);
+    this->setCoord_representation(COORD_POLAR);
+}
 
 void NbreCplx::cpCoord(NbreCplx & dest, const NbreCplx & from){
     coord_system repr = from.getCoord_representation();

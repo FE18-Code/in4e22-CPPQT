@@ -143,6 +143,15 @@ private:
      */
     static void cpCoord(NbreCplx & dest, const float_t & val1, const float_t & val2, const coord_system & representation=D_COORDSYST_DEFAULT);
 
+    /** converts objects to use rectangular system
+     *
+     */
+    void toRectangular();
+
+    /** converts objects to use polar system
+     *
+     */
+    void toPolar();
 
     /* ================== */
     /* private attributes */
